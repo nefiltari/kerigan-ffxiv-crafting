@@ -15,7 +15,6 @@ Skill = Kerigan.Skill
 Engine = Kerigan.Engine
 Buff = Kerigan.Buff
 Value = Kerigan.Value
-successor = Kerigan.successor
 
 # Basic Skills
 
@@ -23,7 +22,7 @@ successor = Kerigan.successor
 Skills['basic-synthesis'] = new Skill 'basic-synthesis', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     progress = engine.values.progress() * @state.efficiency
     engine.state.progress.install 'add', Mods['add-progress'](engine, progress)
     engine.state.capacity.install 'use', Mods['use-capacity'](engine)
@@ -33,7 +32,7 @@ Skills['basic-synthesis'].init 0, { success: 0.9, efficiency: 1.0 }
 Skills['basic-touch'] = new Skill 'basic-touch', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     quality = engine.values.quality() * @state.efficiency
     engine.state.quality.install 'add', Mods['add-quality'](engine, quality)
     engine.state.capacity.install 'use', Mods['use-capacity'](engine)
@@ -82,7 +81,7 @@ Skills['observe'].init 14
 Skills['standard-touch'] = new Skill 'standard-touch', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     quality = engine.values.quality() * @state.efficiency
     engine.state.quality.install 'add', Mods['add-quality'](engine, quality)
     engine.state.capacity.install 'use', Mods['use-capacity'](engine)
@@ -114,7 +113,7 @@ Skills['masters-mend-ii'].init 160, { bonus: 60 }
 Skills['standard-synthesis'] = new Skill 'standard-synthesis', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     progress = engine.values.progress() * @state.efficiency
     engine.state.progress.install 'add', Mods['add-progress'](engine, progress)
     engine.state.capacity.install 'use', Mods['use-capacity'](engine)
@@ -125,7 +124,7 @@ Skills['standard-synthesis'].init 15, { success: 0.9, efficiency: 1.5 }
 Skills['advanced-touch'] = new Skill 'advanced-touch', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     quality = engine.values.quality() * @state.efficiency
     engine.state.quality.install 'add', Mods['add-quality'](engine, quality)
     engine.state.capacity.install 'use', Mods['use-capacity'](engine)
@@ -149,7 +148,7 @@ Skills['rumination'].init 0
 Skills['brand-of-wind'] = new Skill 'brand-of-wind', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     progress = engine.values.progress() * @state.efficiency
     progress = progress * 2.0 if engine.state.target.affinity() is @state.affinity
     engine.state.progress.install 'add', Mods['add-progress'](engine, progress)
@@ -161,7 +160,7 @@ Skills['brand-of-wind'].init 15, { success: 0.9, affinity: 'wind', efficiency: 1
 Skills['byregots-blessing'] = new Skill 'byregots-blessing', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     efficiency = @state.efficiency + (0.2 * engine.get_buff('inner-quiet').state.size)
     engine.del_buff 'inner-quiet'
     quality = engine.values.quality() * efficiency
@@ -185,7 +184,7 @@ Skills['ingenuity'].init 24, { rounds: 5 }
 Skills['brand-of-fire'] = new Skill 'brand-of-fire', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     progress = engine.values.progress() * @state.efficiency
     progress = progress * 2.0 if engine.state.target.affinity() is @state.affinity
     engine.state.progress.install 'add', Mods['add-progress'](engine, progress)
@@ -208,7 +207,7 @@ Skills['ingenuity-ii'].init 32, { rounds: 5 }
 Skills['rapid-synthesis'] = new Skill 'rapid-synthesis', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     progress = engine.values.progress() * @state.efficiency
     engine.state.progress.install 'add', Mods['add-progress'](engine, progress)
     engine.state.capacity.install 'use', Mods['use-capacity'](engine)
@@ -219,7 +218,7 @@ Skills['rapid-synthesis'].init 0, { success: 0.5, efficiency: 2.5 }
 Skills['brand-of-ice'] = new Skill 'brand-of-ice', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     progress = engine.values.progress() * @state.efficiency
     progress = progress * 2.0 if engine.state.target.affinity() is @state.affinity
     engine.state.progress.install 'add', Mods['add-progress'](engine, progress)
@@ -231,7 +230,7 @@ Skills['brand-of-ice'].init 15, { success: 0.9, affinity: 'ice', efficiency: 1.0
 Skills['piece-by-piece'] = new Skill 'piece-by-piece', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     remaining = engine.state.target.progress() - engine.state.progress()
     progress = Math.floor(remaining / 3.0)
     engine.state.progress.install 'add', Mods['add-progress'](engine, progress)
@@ -255,7 +254,7 @@ Skills['steady-hand'].init 88, { rounds: 3, bonus: 10 }
 Skills['flawless-synthesis'] = new Skill 'flawless-synthesis', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     progress = @state.bonus
     engine.state.progress.install 'add', Mods['add-progress'](engine, progress)
     engine.state.capacity.install 'use', Mods['use-capacity'](engine)
@@ -287,7 +286,7 @@ Skills['waste-not'].init 56, { rounds: 4 }
 Skills['brand-of-earth'] = new Skill 'brand-of-earth', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     progress = engine.values.progress() * @state.efficiency
     progress = progress * 2.0 if engine.state.target.affinity() is @state.affinity
     engine.state.progress.install 'add', Mods['add-progress'](engine, progress)
@@ -317,7 +316,7 @@ Skills['careful-synthesis'].init 0, { success: 1.0, efficiency: 0.9 }
 Skills['brand-of-lightning'] = new Skill 'brand-of-ligthning', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     progress = engine.values.progress() * @state.efficiency
     progress = progress * 2.0 if engine.state.target.affinity() is @state.affinity
     engine.state.progress.install 'add', Mods['add-progress'](engine, progress)
@@ -344,7 +343,7 @@ Skills['tricks-of-the-trade'].init 0, { bonus: 20 }
 Skills['brand-of-water'] = new Skill 'brand-of-water', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     progress = engine.values.progress() * @state.efficiency
     progress = progress * 2.0 if engine.state.target.affinity() is @state.affinity
     engine.state.progress.install 'add', Mods['add-progress'](engine, progress)
@@ -369,7 +368,7 @@ Skills['comfort-zone'].init 66, { rounds: 10, bonus: 8 }
 Skills['hasty-touch'] = new Skill 'hasty-touch', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
-  if successor chance
+  if engine.successor chance
     quality = engine.values.quality() * @state.efficiency
     engine.state.quality.install 'add', Mods['add-quality'](engine, quality)
     engine.state.capacity.install 'use', Mods['use-capacity'](engine)

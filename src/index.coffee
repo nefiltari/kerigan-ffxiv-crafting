@@ -53,7 +53,7 @@ Craft.Engine = (config = {}) ->
     unless eg.config.without_condition? and eg.config.without_condition
       return engine.state.condition.install 'normal', ((akk) -> 1.0) if engine.state.condition() is 1.5 or engine.state.condition() is 0.5
       return engine.state.condition.install 'poor', ((akk) -> 0.5) if engine.state.condition() is 4.0
-      success = do successor
+      success = do engine.successor
       return engine.state.condition.install 'excellent', ((akk) -> 4.0) if success <= 0.05
       return engine.state.condition.install 'good', ((akk) -> 1.5) if success <= 0.25
 

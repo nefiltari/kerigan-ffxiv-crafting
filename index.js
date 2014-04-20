@@ -64,7 +64,7 @@
             return 0.5;
           }));
         }
-        success = successor();
+        success = engine.successor();
         if (success <= 0.05) {
           return engine.state.condition.install('excellent', (function(akk) {
             return 4.0;
