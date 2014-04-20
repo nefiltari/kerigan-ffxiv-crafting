@@ -363,11 +363,12 @@
   });
 
   Skills['manipulation'] = new Skill('manipulation', function(engine) {
-    var buff;
+    var bonus, buff;
+    bonus = this.state.bonus;
     buff = new Buff('manipulation');
     buff.init(this.state.rounds);
     buff.on('tick', function(engine) {
-      return engine.state.capacity.install('add', Mods['add-capacity'](engine, this.state.bonus));
+      return engine.state.capacity.install('add', Mods['add-capacity'](engine, bonus));
     });
     engine.add_buff(buff);
     return engine.state.cp.install('sub', Mods['sub-cp'](engine, this.cost));

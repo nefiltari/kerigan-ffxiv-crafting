@@ -84,7 +84,7 @@ Mods['use-capacity'] = (engine) ->
 # Mod that creates add capacity mod
 Mods['add-capacity'] = (engine, capacity) ->
   max = engine.state.target.capacity()
-  (akk) -> Math.min max, akk + capacity
+  (akk) ->  Math.min max, akk + capacity
 
 # Mod that creates a mod for calculated success chance (over all skills)
 Mods['add-success'] = (engine, success) ->

@@ -242,10 +242,11 @@ Skills['piece-by-piece'].init 15, { success: 0.9 }
 
 # Manipulation (15)
 Skills['manipulation'] = new Skill 'manipulation', (engine) ->
+  bonus = @state.bonus
   buff = new Buff 'manipulation'
   buff.init @state.rounds
   buff.on 'tick', (engine) ->
-    engine.state.capacity.install 'add', Mods['add-capacity'](engine, @state.bonus)
+    engine.state.capacity.install 'add', Mods['add-capacity'](engine, bonus)
   engine.add_buff buff
   engine.state.cp.install 'sub', Mods['sub-cp'](engine, @cost)
 Skills['manipulation'].init 88, { rounds: 3, bonus: 10 }
