@@ -37,7 +37,7 @@
     eg.on('validation', function(engine, skill, next) {
       var conditions, state, _ref;
       state = engine.state;
-      conditions = [state.cp() < skill.cost, skill.id === 'tricks_of_the_trade' && state.condition() !== 1.5, (skill.id === 'rumination' || skill.id === 'byregots_blessing') && ((_ref = engine.get_buff('inner_quite')) != null ? _ref[0].state.size : void 0) < 2];
+      conditions = [state.cp() < skill.cost, skill.id === 'tricks-of-the-trade' && state.condition() !== 1.5, (skill.id === 'rumination' || skill.id === 'byregots-blessing') && ((_ref = engine.get_buff('inner-quiet')) != null ? _ref[0].state.size : void 0) < 2];
       return next(!_.inject(conditions, (function(akk, cond) {
         return akk || cond;
       }), false));
