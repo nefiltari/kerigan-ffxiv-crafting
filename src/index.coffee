@@ -23,8 +23,9 @@ Craft.mods = require './mods'
 Craft.skills = require './skills'
 
 # Engine
-Craft.Engine = ->
+Craft.Engine = (config = {}) ->
   eg = Engine.call @
+  eg.config = config
 
   # The validation function
   eg.on 'validation', (engine, skill, next) ->
@@ -49,7 +50,7 @@ Craft.Engine = ->
 
   # Variable the crafting condition with rng (turn off this option with without_condition: true)
   eg.on 'next', (engine) ->
-    unless engine.state.without_condition? and engine.state.without_condition
+    unless eg.config.without_condition? and eg.config.without_condition
       return engine.state.condition.install 'normal', ((akk) -> 1.0) if engine.state.condition() is 1.5 or engine.state.condition() is 0.5
       return engine.state.condition.install 'poor', ((akk) -> 0.5) if engine.state.condition() is 4.0
       success = do successor
