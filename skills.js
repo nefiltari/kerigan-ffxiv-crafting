@@ -205,7 +205,7 @@
   Skills['rumination'] = new Skill('rumination', function(engine) {
     var buff, cp, cps;
     cps = [15, 24, 32, 39, 45, 50, 54, 57, 59];
-    buff = engine.get_buff('inner-quiet');
+    buff = engine.get_buff('inner-quiet')[0];
     cp = 60;
     if (buff.state.size < 10) {
       cp = cps[buff.state.size - 1];
@@ -242,7 +242,7 @@
     chance = Math.min(1.0, engine.values.success() + this.state.success);
     engine.state.success.install('add', Mods['add-success'](engine, chance));
     if (engine.successor(chance)) {
-      efficiency = this.state.efficiency + (0.2 * engine.get_buff('inner-quiet').state.size);
+      efficiency = this.state.efficiency + (0.2 * engine.get_buff('inner-quiet')[0].state.size);
       engine.del_buff('inner-quiet');
       quality = engine.values.quality() * efficiency;
       engine.state.quality.install('add', Mods['add-quality'](engine, quality));

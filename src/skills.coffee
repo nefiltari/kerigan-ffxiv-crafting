@@ -137,7 +137,7 @@ Skills['advanced-touch'].init 43, { success: 0.9, efficiency: 1.5 }
 # Rumination (15)
 Skills['rumination'] = new Skill 'rumination', (engine) ->
   cps = [15, 24, 32, 39, 45, 50, 54, 57, 59]
-  buff = engine.get_buff('inner-quiet')
+  buff = engine.get_buff('inner-quiet')[0]
   cp = 60
   cp = cps[buff.state.size-1] if buff.state.size < 10
   engine.del_buff buff
@@ -161,7 +161,7 @@ Skills['byregots-blessing'] = new Skill 'byregots-blessing', (engine) ->
   chance = Math.min 1.0, engine.values.success() + @state.success
   engine.state.success.install 'add', Mods['add-success'](engine, chance)
   if engine.successor chance
-    efficiency = @state.efficiency + (0.2 * engine.get_buff('inner-quiet').state.size)
+    efficiency = @state.efficiency + (0.2 * engine.get_buff('inner-quiet')[0].state.size)
     engine.del_buff 'inner-quiet'
     quality = engine.values.quality() * efficiency
     engine.state.quality.install 'add', Mods['add-quality'](engine, quality)
