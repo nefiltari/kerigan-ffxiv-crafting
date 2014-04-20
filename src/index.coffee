@@ -33,7 +33,7 @@ Craft.Engine = (config = {}) ->
     conditions = [
       state.cp() < skill.cost,
       skill.id is 'tricks-of-the-trade' and state.condition() isnt 1.5,
-      (skill.id is 'rumination' or skill.id is 'byregots-blessing') and engine.get_buff('inner-quiet')?[0].state.size < 2
+      (skill.id is 'rumination' or skill.id is 'byregots-blessing') and engine.get_buff('inner-quiet')[0]?.state.size < 2
     ]
     next(not _.inject conditions, ((akk, cond) -> akk or cond), false)
 
