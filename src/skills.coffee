@@ -248,7 +248,7 @@ Skills['manipulation'] = new Skill 'manipulation', (engine) ->
     engine.state.capacity.install 'add', Mods['add-capacity'](engine, @state.bonus)
   engine.add_buff buff
   engine.state.cp.install 'sub', Mods['sub-cp'](engine, @cost)
-Skills['steady-hand'].init 88, { rounds: 3, bonus: 10 }
+Skills['manipulation'].init 88, { rounds: 3, bonus: 10 }
 
 # Flawless Synthesis (37)
 Skills['flawless-synthesis'] = new Skill 'flawless-synthesis', (engine) ->

@@ -373,7 +373,7 @@
     return engine.state.cp.install('sub', Mods['sub-cp'](engine, this.cost));
   });
 
-  Skills['steady-hand'].init(88, {
+  Skills['manipulation'].init(88, {
     rounds: 3,
     bonus: 10
   });

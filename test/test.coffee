@@ -35,4 +35,4 @@ engine.next skills['basic-synthesis']
 
 # Engine Log
 console.log engine
-#console.log engine.state.control.modifiers
+#console.log engine.values.success
