@@ -9,6 +9,7 @@ async = require 'async'
 
 Craft = require('../index')
 engine = new Craft.Engine
+  without_condition: true
 skills = Craft.skills
 
 engine.init
