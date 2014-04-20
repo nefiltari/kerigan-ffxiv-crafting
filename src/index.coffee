@@ -24,8 +24,7 @@ Craft.skills = require './skills'
 
 # Engine
 Craft.Engine = (config = {}) ->
-  eg = Engine.call @
-  eg.config = config
+  eg = Engine.call @, config
 
   # The validation function
   eg.on 'validation', (engine, skill, next) ->

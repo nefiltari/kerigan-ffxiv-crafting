@@ -33,8 +33,7 @@
     if (config == null) {
       config = {};
     }
-    eg = Engine.call(this);
-    eg.config = config;
+    eg = Engine.call(this, config);
     eg.on('validation', function(engine, skill, next) {
       var conditions, state, _ref;
       state = engine.state;
