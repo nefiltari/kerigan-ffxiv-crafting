@@ -74,7 +74,7 @@ Mods['add-quality'] = (engine, quality) ->
 Mods['add-progress'] = (engine, progress) ->
   progress = Math.round progress
   max = engine.state.target.progress()
-  (akk) -> Math.min max, akk + pogress
+  (akk) -> Math.min max, akk + progress
 
 # Mod that creates use capacity mod ('use' means the use of an engine.values value)
 Mods['use-capacity'] = (engine) ->

@@ -74,7 +74,7 @@
     progress = Math.round(progress);
     max = engine.state.target.progress();
     return function(akk) {
-      return Math.min(max, akk + pogress);
+      return Math.min(max, akk + progress);
     };
   };
 
