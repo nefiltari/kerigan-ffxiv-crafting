@@ -31,9 +31,8 @@ engine.next skills['inner-quiet']
 engine.next skills['steady-hand-ii']
 engine.next skills['waste-not']
 engine.next skills['basic-touch']
-#engine.next skills['basic-touch']
-#engine.next skills['standard-synthesis']
-#engine.next skills['byregots-blessing']
+engine.next skills['basic-touch']
+engine.next skills['standard-synthesis']
 
 # Engine Log
 console.log engine
