@@ -16,9 +16,9 @@
     var control, modifier, quality;
     control = engine.state.control();
     quality = 3.4275521095175201e+001 + 3.558806693020045e-001 * control + 3.5279187952857053e-005 * control * control;
-    quality *= engine.state.condition();
     modifier = 1.0 - 0.05 * Math.min(Math.max(engine.state.target.level() - engine.state.level(), 0), 5);
-    return quality *= modifier;
+    quality *= modifier;
+    return quality *= engine.state.condition();
   };
 
   hqs = _.times(101, function(percent) {

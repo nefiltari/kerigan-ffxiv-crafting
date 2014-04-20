@@ -16,11 +16,11 @@ async = require 'async'
 Mods['processor-quality'] = (engine) ->
   control = engine.state.control()
   quality = 3.4275521095175201e+001 + 3.558806693020045e-001 * control + 3.5279187952857053e-005 * control * control
-  # With crafting condition
-  quality *= engine.state.condition()
   # Calculate penality (capped maximal to 5 level over job level) (Quality has no bonus)
   modifier = 1.0 - 0.05 * Math.min(Math.max(engine.state.target.level() - engine.state.level(), 0), 5)
   quality *= modifier
+  # With crafting condition
+  quality *= engine.state.condition()
 
 # Thats is the value inverse function from Q(HQ) because there exist no mathematical representation for HQ(Q)
 # R^2 = 0.9986

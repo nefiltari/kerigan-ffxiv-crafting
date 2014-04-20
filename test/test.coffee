@@ -16,13 +16,13 @@ skills = Craft.skills
 
 engine.init
   craftmanship: 359
-  control: 351
+  control: 303
   cp: 345
   level: 50
   target:
     quality: 2921
     progress: 116
-    level: 55
+    level: 50
     capacity: 40
     affinity: 'earth'
 
@@ -31,8 +31,8 @@ engine.next skills['inner-quiet']
 engine.next skills['steady-hand-ii']
 engine.next skills['waste-not']
 engine.next skills['basic-touch']
-engine.next skills['basic-touch']
-engine.next skills['standard-synthesis']
+#engine.next skills['basic-touch']
+#engine.next skills['standard-synthesis']
 #engine.next skills['byregots-blessing']
 
 # Engine Log
