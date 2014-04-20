@@ -23,12 +23,14 @@ engine.init
     capacity: 40
     affinity: 'earth'
 
-engine.next skills['inner-quiet']
 engine.next skills['comfort-zone']
+engine.next skills['inner-quiet']
 engine.next skills['steady-hand-ii']
+engine.next skills['waste-not']
 engine.next skills['basic-touch']
 engine.next skills['basic-touch']
-engine.next skills['hasty-touch']
+engine.next skills['basic-touch']
+engine.next skills['basic-touch']
 
 # Engine Log
 console.log engine
