@@ -15,9 +15,9 @@ engine = new Craft.Engine
 skills = Craft.skills
 
 engine.init
-  craftmanship: 347
-  control: 330
-  cp: 365
+  craftmanship: 359
+  control: 351
+  cp: 345
   level: 50
   target:
     quality: 2921
@@ -28,12 +28,12 @@ engine.init
 
 engine.next skills['comfort-zone']
 engine.next skills['inner-quiet']
-engine.next skills['steady-hand']
+engine.next skills['steady-hand-ii']
 engine.next skills['waste-not']
-engine.next skills['advanced-touch']
-engine.next skills['standard-touch']
+engine.next skills['basic-touch']
+engine.next skills['basic-touch']
 engine.next skills['standard-synthesis']
-engine.next skills['rumination']
+#engine.next skills['byregots-blessing']
 
 # Engine Log
 console.log engine
