@@ -35,10 +35,9 @@
     }
     eg = Engine.call(this, config);
     eg.on('validation', function(engine, skill, next) {
-      var conditions, except, state, _ref;
+      var conditions, state, _ref;
       state = engine.state;
-      except = (engine.config.without_condition != null) && engine.config.without_condition;
-      conditions = [state.cp() < skill.cost, skill.id === 'tricks-of-the-trade' && (state.condition() !== 1.5) && !except, (skill.id === 'rumination' || skill.id === 'byregots-blessing') && ((_ref = engine.get_buff('inner-quiet')[0]) != null ? _ref.state.size : void 0) < 2];
+      conditions = [state.cp() < skill.cost, skill.id === 'tricks-of-the-trade' && (state.condition() !== 1.5), (skill.id === 'rumination' || skill.id === 'byregots-blessing') && ((_ref = engine.get_buff('inner-quiet')[0]) != null ? _ref.state.size : void 0) < 2];
       return next(!_.inject(conditions, (function(akk, cond) {
         return akk || cond;
       }), false));
