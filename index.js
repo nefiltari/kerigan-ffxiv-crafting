@@ -28,9 +28,13 @@
 
   Craft.skills = require('./skills');
 
-  Craft.Engine = function() {
+  Craft.Engine = function(config) {
     var eg;
+    if (config == null) {
+      config = {};
+    }
     eg = Engine.call(this);
+    eg.config = config;
     eg.on('validation', function(engine, skill, next) {
       var conditions, state, _ref;
       state = engine.state;
@@ -49,7 +53,7 @@
     });
     eg.on('next', function(engine) {
       var success;
-      if (!((engine.state.without_condition != null) && engine.state.without_condition)) {
+      if (!((eg.config.without_condition != null) && eg.config.without_condition)) {
         if (engine.state.condition() === 1.5 || engine.state.condition() === 0.5) {
           return engine.state.condition.install('normal', (function(akk) {
             return 1.0;
