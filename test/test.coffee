@@ -29,10 +29,10 @@ engine.init
 engine.next skills['comfort-zone']
 engine.next skills['inner-quiet']
 engine.next skills['steady-hand-ii']
-engine.next skills['waste-not']
 engine.next skills['basic-touch']
 engine.next skills['basic-touch']
-engine.next skills['standard-synthesis']
+engine.next skills['basic-synthesis']
+engine.next skills['manipulation']
 
 # Engine Log
 console.log engine
