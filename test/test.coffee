@@ -1,0 +1,35 @@
+## Libs
+
+coffee = require 'coffee-script'
+require 'coffee-script/register'
+_ = require 'underscore'
+async = require 'async'
+
+## Code
+
+Craft = require('../index')
+engine = new Craft.Engine
+skills = Craft.skills
+
+engine.init
+  craftmanship: 347
+  control: 330
+  cp: 365
+  level: 50
+  target:
+    quality: 2921
+    progress: 116
+    level: 55
+    capacity: 40
+    affinity: 'earth'
+
+engine.next skills['inner-quiet']
+engine.next skills['comfort-zone']
+engine.next skills['steady-hand-ii']
+engine.next skills['basic-touch']
+engine.next skills['basic-touch']
+engine.next skills['hasty-touch']
+
+# Engine Log
+console.log engine
+#console.log engine.state.control.modifiers
