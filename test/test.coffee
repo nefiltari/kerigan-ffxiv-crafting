@@ -10,7 +10,7 @@ async = require 'async'
 Craft = require('../index')
 engine = new Craft.Engine
   without_condition: true
-  lucky_strike: true
+##  lucky_strike: true
 skills = Craft.skills
 
 engine.init
@@ -27,12 +27,11 @@ engine.init
 
 engine.next skills['comfort-zone']
 engine.next skills['inner-quiet']
-engine.next skills['steady-hand-ii']
+engine.next skills['steady-hand']
 engine.next skills['waste-not']
 engine.next skills['basic-touch']
 engine.next skills['basic-touch']
-engine.next skills['basic-touch']
-engine.next skills['basic-touch']
+engine.next skills['basic-synthesis']
 
 # Engine Log
 console.log engine
