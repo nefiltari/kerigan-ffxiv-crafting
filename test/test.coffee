@@ -31,6 +31,7 @@ engine.next skills['steady-hand']
 engine.next skills['waste-not']
 engine.next skills['basic-touch']
 engine.next skills['basic-touch']
+engine.next skills['rumination']
 engine.next skills['basic-synthesis']
 
 # Engine Log

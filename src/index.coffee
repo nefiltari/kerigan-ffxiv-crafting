@@ -32,8 +32,8 @@ Craft.Engine = (config = {}) ->
     # Skill abort conditions
     conditions = [
       state.cp() < skill.cost,
-      skill.id is 'tricks_of_the_trade' and state.condition() isnt 1.5,
-      (skill.id is 'rumination' or skill.id is 'byregots_blessing') and engine.get_buff('inner_quite')?[0].state.size < 2
+      skill.id is 'tricks-of-the-trade' and state.condition() isnt 1.5,
+      (skill.id is 'rumination' or skill.id is 'byregots-blessing') and engine.get_buff('inner-quiet')?[0].state.size < 2
     ]
     next(not _.inject conditions, ((akk, cond) -> akk or cond), false)
 
