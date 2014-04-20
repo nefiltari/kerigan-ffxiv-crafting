@@ -98,12 +98,12 @@
       engine.state.progress = new Value('progress', engine.state.progress || 0);
       engine.state.condition = new Value('condition', engine.state.condition || 1.0);
       engine.state.success = new Value('success', 1.0);
-      engine.values.quality = new Value('quality', engine);
+      engine.values.quality = new Value('quality', engine, false);
       engine.values.quality.install('processor', Craft.mods['processor-quality']);
-      engine.values.progress = new Value('progress', engine);
+      engine.values.progress = new Value('progress', engine, false);
       engine.values.progress.install('processor', Craft.mods['processor-progress']);
-      engine.values.capacity = new Value('capacity', 10);
-      return engine.values.success = new Value('success', 0.0);
+      engine.values.capacity = new Value('capacity', 10, false);
+      return engine.values.success = new Value('success', 0.0, false);
     });
     return eg;
   };

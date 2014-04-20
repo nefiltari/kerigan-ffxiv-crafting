@@ -93,17 +93,17 @@ Craft.Engine = (config = {}) ->
     # Internal
     engine.state.success = new Value 'success', 1.0
 
-    # Calculated Values
+    # Calculated Values (with no cache)
     # Quality processor
-    engine.values.quality = new Value 'quality', engine
+    engine.values.quality = new Value 'quality', engine, false
     engine.values.quality.install 'processor', Craft.mods['processor-quality']
     # Progress processor
-    engine.values.progress = new Value 'progress', engine
+    engine.values.progress = new Value 'progress', engine, false
     engine.values.progress.install 'processor', Craft.mods['processor-progress']
     # Capacity processor
-    engine.values.capacity = new Value 'capacity', 10
+    engine.values.capacity = new Value 'capacity', 10, false
     # Success bonus processor
-    engine.values.success = new Value 'success', 0.0
+    engine.values.success = new Value 'success', 0.0, false
 
 
   eg

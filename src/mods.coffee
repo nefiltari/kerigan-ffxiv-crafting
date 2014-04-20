@@ -15,6 +15,7 @@ async = require 'async'
 # Calculates used quality
 Mods['processor-quality'] = (engine) ->
   control = engine.state.control()
+  console.log control
   quality = 3.4275521095175201e+001 + 3.558806693020045e-001 * control + 3.5279187952857053e-005 * control * control
   # With crafting condition
   quality *= engine.state.condition()
