@@ -90,7 +90,7 @@
       size: 1
     });
     buff.install(engine.state.control, function(akk) {
-      return akk + Math.floor(this.base * 0.2 * buff.state.size);
+      return akk + Math.floor(this.base * 0.2 * (buff.state.size - 1));
     });
     listener = function(mod) {
       if (mod.id === 'add') {
@@ -207,8 +207,8 @@
     cps = [15, 24, 32, 39, 45, 50, 54, 57, 59];
     buff = engine.get_buff('inner-quiet')[0];
     cp = 60;
-    if (buff.state.size < 10) {
-      cp = cps[buff.state.size - 1];
+    if (buff.state.size < 11) {
+      cp = cps[buff.state.size - 2];
     }
     engine.del_buff(buff);
     return engine.state.cp.install('add', Mods['add-cp'](engine, cp));

@@ -59,7 +59,7 @@ Skills['steady-hand'].init 22, { bonus: 0.2, rounds: 5 }
 Skills['inner-quiet'] = new Skill 'inner-quiet', (engine) ->
   buff = new Buff 'inner-quiet'
   buff.init 'infinite', { size: 1 }
-  buff.install engine.state.control, (akk) -> akk + Math.floor(@base * 0.2 * buff.state.size)
+  buff.install engine.state.control, (akk) -> akk + Math.floor(@base * 0.2 * (buff.state.size - 1))
   listener = (mod) ->
     if mod.id is 'add'
       buff.state.size += 1
@@ -139,7 +139,7 @@ Skills['rumination'] = new Skill 'rumination', (engine) ->
   cps = [15, 24, 32, 39, 45, 50, 54, 57, 59]
   buff = engine.get_buff('inner-quiet')[0]
   cp = 60
-  cp = cps[buff.state.size-1] if buff.state.size < 10
+  cp = cps[buff.state.size-2] if buff.state.size < 11
   engine.del_buff buff
   engine.state.cp.install 'add', Mods['add-cp'](engine, cp)
 Skills['rumination'].init 0
